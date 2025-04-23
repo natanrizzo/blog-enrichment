@@ -9,7 +9,7 @@ export interface SiteXPaths {
     paginationLimit?: number;
 }
 
-export const blogConfigs: Record<string, SiteXPaths> = {
+/*export const blogConfigs: Record<string, SiteXPaths> = {
     "www.manualdepericias.com.br": {
         indexUrl: "/blog/",
         itemXPath: "//h1[contains(@class, 'entry-title')]/a",
@@ -30,4 +30,4 @@ export const blogConfigs: Record<string, SiteXPaths> = {
         paginationNextXPath: "//a[contains(text(),'Próxima')]",
         paginationLimit: 5,
     },
-}
+}*/

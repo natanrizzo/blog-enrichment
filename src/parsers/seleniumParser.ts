@@ -14,6 +14,7 @@ export class SeleniumParser implements IParser {
         const options = new chrome.Options();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
+        options.addArguments("--disable-gpu");
         this.driver = await new Builder()
         .forBrowser("chrome")
         .setChromeOptions(options)

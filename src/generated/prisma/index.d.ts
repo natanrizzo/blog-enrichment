@@ -19,6 +19,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type Blog = $Result.DefaultSelection<Prisma.$BlogPayload>
 /**
+ * Model XPathConfig
+ * 
+ */
+export type XPathConfig = $Result.DefaultSelection<Prisma.$XPathConfigPayload>
+/**
  * Model Post
  * 
  */
@@ -158,6 +163,16 @@ export class PrismaClient<
     * ```
     */
   get blog(): Prisma.BlogDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.xPathConfig`: Exposes CRUD operations for the **XPathConfig** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more XPathConfigs
+    * const xPathConfigs = await prisma.xPathConfig.findMany()
+    * ```
+    */
+  get xPathConfig(): Prisma.XPathConfigDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.post`: Exposes CRUD operations for the **Post** model.
@@ -609,6 +624,7 @@ export namespace Prisma {
 
   export const ModelName: {
     Blog: 'Blog',
+    XPathConfig: 'XPathConfig',
     Post: 'Post'
   };
 
@@ -628,7 +644,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "blog" | "post"
+      modelProps: "blog" | "xPathConfig" | "post"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -703,6 +719,80 @@ export namespace Prisma {
           count: {
             args: Prisma.BlogCountArgs<ExtArgs>
             result: $Utils.Optional<BlogCountAggregateOutputType> | number
+          }
+        }
+      }
+      XPathConfig: {
+        payload: Prisma.$XPathConfigPayload<ExtArgs>
+        fields: Prisma.XPathConfigFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.XPathConfigFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.XPathConfigFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>
+          }
+          findFirst: {
+            args: Prisma.XPathConfigFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.XPathConfigFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>
+          }
+          findMany: {
+            args: Prisma.XPathConfigFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>[]
+          }
+          create: {
+            args: Prisma.XPathConfigCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>
+          }
+          createMany: {
+            args: Prisma.XPathConfigCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.XPathConfigCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>[]
+          }
+          delete: {
+            args: Prisma.XPathConfigDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>
+          }
+          update: {
+            args: Prisma.XPathConfigUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>
+          }
+          deleteMany: {
+            args: Prisma.XPathConfigDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.XPathConfigUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.XPathConfigUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>[]
+          }
+          upsert: {
+            args: Prisma.XPathConfigUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$XPathConfigPayload>
+          }
+          aggregate: {
+            args: Prisma.XPathConfigAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateXPathConfig>
+          }
+          groupBy: {
+            args: Prisma.XPathConfigGroupByArgs<ExtArgs>
+            result: $Utils.Optional<XPathConfigGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.XPathConfigCountArgs<ExtArgs>
+            result: $Utils.Optional<XPathConfigCountAggregateOutputType> | number
           }
         }
       }
@@ -865,6 +955,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     blog?: BlogOmit
+    xPathConfig?: XPathConfigOmit
     post?: PostOmit
   }
 
@@ -1005,11 +1096,13 @@ export namespace Prisma {
   export type BlogAvgAggregateOutputType = {
     id: number | null
     totalPosts: number | null
+    xPathId: number | null
   }
 
   export type BlogSumAggregateOutputType = {
     id: number | null
     totalPosts: number | null
+    xPathId: number | null
   }
 
   export type BlogMinAggregateOutputType = {
@@ -1018,6 +1111,7 @@ export namespace Prisma {
     platform: string | null
     lastScrapedAt: Date | null
     totalPosts: number | null
+    xPathId: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1028,6 +1122,7 @@ export namespace Prisma {
     platform: string | null
     lastScrapedAt: Date | null
     totalPosts: number | null
+    xPathId: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1038,6 +1133,7 @@ export namespace Prisma {
     platform: number
     lastScrapedAt: number
     totalPosts: number
+    xPathId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1047,11 +1143,13 @@ export namespace Prisma {
   export type BlogAvgAggregateInputType = {
     id?: true
     totalPosts?: true
+    xPathId?: true
   }
 
   export type BlogSumAggregateInputType = {
     id?: true
     totalPosts?: true
+    xPathId?: true
   }
 
   export type BlogMinAggregateInputType = {
@@ -1060,6 +1158,7 @@ export namespace Prisma {
     platform?: true
     lastScrapedAt?: true
     totalPosts?: true
+    xPathId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1070,6 +1169,7 @@ export namespace Prisma {
     platform?: true
     lastScrapedAt?: true
     totalPosts?: true
+    xPathId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1080,6 +1180,7 @@ export namespace Prisma {
     platform?: true
     lastScrapedAt?: true
     totalPosts?: true
+    xPathId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1177,6 +1278,7 @@ export namespace Prisma {
     platform: string
     lastScrapedAt: Date | null
     totalPosts: number
+    xPathId: number | null
     createdAt: Date
     updatedAt: Date
     _count: BlogCountAggregateOutputType | null
@@ -1206,8 +1308,10 @@ export namespace Prisma {
     platform?: boolean
     lastScrapedAt?: boolean
     totalPosts?: boolean
+    xPathId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    xPath?: boolean | Blog$xPathArgs<ExtArgs>
     posts?: boolean | Blog$postsArgs<ExtArgs>
     _count?: boolean | BlogCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["blog"]>
@@ -1218,8 +1322,10 @@ export namespace Prisma {
     platform?: boolean
     lastScrapedAt?: boolean
     totalPosts?: boolean
+    xPathId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    xPath?: boolean | Blog$xPathArgs<ExtArgs>
   }, ExtArgs["result"]["blog"]>
 
   export type BlogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1228,8 +1334,10 @@ export namespace Prisma {
     platform?: boolean
     lastScrapedAt?: boolean
     totalPosts?: boolean
+    xPathId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    xPath?: boolean | Blog$xPathArgs<ExtArgs>
   }, ExtArgs["result"]["blog"]>
 
   export type BlogSelectScalar = {
@@ -1238,21 +1346,28 @@ export namespace Prisma {
     platform?: boolean
     lastScrapedAt?: boolean
     totalPosts?: boolean
+    xPathId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type BlogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "baseUrl" | "platform" | "lastScrapedAt" | "totalPosts" | "createdAt" | "updatedAt", ExtArgs["result"]["blog"]>
+  export type BlogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "baseUrl" | "platform" | "lastScrapedAt" | "totalPosts" | "xPathId" | "createdAt" | "updatedAt", ExtArgs["result"]["blog"]>
   export type BlogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    xPath?: boolean | Blog$xPathArgs<ExtArgs>
     posts?: boolean | Blog$postsArgs<ExtArgs>
     _count?: boolean | BlogCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type BlogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type BlogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type BlogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    xPath?: boolean | Blog$xPathArgs<ExtArgs>
+  }
+  export type BlogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    xPath?: boolean | Blog$xPathArgs<ExtArgs>
+  }
 
   export type $BlogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Blog"
     objects: {
+      xPath: Prisma.$XPathConfigPayload<ExtArgs> | null
       posts: Prisma.$PostPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -1261,6 +1376,7 @@ export namespace Prisma {
       platform: string
       lastScrapedAt: Date | null
       totalPosts: number
+      xPathId: number | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["blog"]>
@@ -1657,6 +1773,7 @@ export namespace Prisma {
    */
   export interface Prisma__BlogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    xPath<T extends Blog$xPathArgs<ExtArgs> = {}>(args?: Subset<T, Blog$xPathArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     posts<T extends Blog$postsArgs<ExtArgs> = {}>(args?: Subset<T, Blog$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1692,6 +1809,7 @@ export namespace Prisma {
     readonly platform: FieldRef<"Blog", 'String'>
     readonly lastScrapedAt: FieldRef<"Blog", 'DateTime'>
     readonly totalPosts: FieldRef<"Blog", 'Int'>
+    readonly xPathId: FieldRef<"Blog", 'Int'>
     readonly createdAt: FieldRef<"Blog", 'DateTime'>
     readonly updatedAt: FieldRef<"Blog", 'DateTime'>
   }
@@ -1943,6 +2061,10 @@ export namespace Prisma {
      */
     data: BlogCreateManyInput | BlogCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BlogIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2013,6 +2135,10 @@ export namespace Prisma {
      * Limit how many Blogs to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BlogIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -2082,6 +2208,25 @@ export namespace Prisma {
   }
 
   /**
+   * Blog.xPath
+   */
+  export type Blog$xPathArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    where?: XPathConfigWhereInput
+  }
+
+  /**
    * Blog.posts
    */
   export type Blog$postsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2121,6 +2266,1159 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: BlogInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model XPathConfig
+   */
+
+  export type AggregateXPathConfig = {
+    _count: XPathConfigCountAggregateOutputType | null
+    _avg: XPathConfigAvgAggregateOutputType | null
+    _sum: XPathConfigSumAggregateOutputType | null
+    _min: XPathConfigMinAggregateOutputType | null
+    _max: XPathConfigMaxAggregateOutputType | null
+  }
+
+  export type XPathConfigAvgAggregateOutputType = {
+    id: number | null
+    paginationLimit: number | null
+  }
+
+  export type XPathConfigSumAggregateOutputType = {
+    id: number | null
+    paginationLimit: number | null
+  }
+
+  export type XPathConfigMinAggregateOutputType = {
+    id: number | null
+    indexUrl: string | null
+    itemXPath: string | null
+    paginationNextXPath: string | null
+    titleXPath: string | null
+    contentXPath: string | null
+    authorXPath: string | null
+    dateXPath: string | null
+    paginationLimit: number | null
+  }
+
+  export type XPathConfigMaxAggregateOutputType = {
+    id: number | null
+    indexUrl: string | null
+    itemXPath: string | null
+    paginationNextXPath: string | null
+    titleXPath: string | null
+    contentXPath: string | null
+    authorXPath: string | null
+    dateXPath: string | null
+    paginationLimit: number | null
+  }
+
+  export type XPathConfigCountAggregateOutputType = {
+    id: number
+    indexUrl: number
+    itemXPath: number
+    paginationNextXPath: number
+    titleXPath: number
+    contentXPath: number
+    authorXPath: number
+    dateXPath: number
+    paginationLimit: number
+    _all: number
+  }
+
+
+  export type XPathConfigAvgAggregateInputType = {
+    id?: true
+    paginationLimit?: true
+  }
+
+  export type XPathConfigSumAggregateInputType = {
+    id?: true
+    paginationLimit?: true
+  }
+
+  export type XPathConfigMinAggregateInputType = {
+    id?: true
+    indexUrl?: true
+    itemXPath?: true
+    paginationNextXPath?: true
+    titleXPath?: true
+    contentXPath?: true
+    authorXPath?: true
+    dateXPath?: true
+    paginationLimit?: true
+  }
+
+  export type XPathConfigMaxAggregateInputType = {
+    id?: true
+    indexUrl?: true
+    itemXPath?: true
+    paginationNextXPath?: true
+    titleXPath?: true
+    contentXPath?: true
+    authorXPath?: true
+    dateXPath?: true
+    paginationLimit?: true
+  }
+
+  export type XPathConfigCountAggregateInputType = {
+    id?: true
+    indexUrl?: true
+    itemXPath?: true
+    paginationNextXPath?: true
+    titleXPath?: true
+    contentXPath?: true
+    authorXPath?: true
+    dateXPath?: true
+    paginationLimit?: true
+    _all?: true
+  }
+
+  export type XPathConfigAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which XPathConfig to aggregate.
+     */
+    where?: XPathConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of XPathConfigs to fetch.
+     */
+    orderBy?: XPathConfigOrderByWithRelationInput | XPathConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: XPathConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` XPathConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` XPathConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned XPathConfigs
+    **/
+    _count?: true | XPathConfigCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: XPathConfigAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: XPathConfigSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: XPathConfigMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: XPathConfigMaxAggregateInputType
+  }
+
+  export type GetXPathConfigAggregateType<T extends XPathConfigAggregateArgs> = {
+        [P in keyof T & keyof AggregateXPathConfig]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateXPathConfig[P]>
+      : GetScalarType<T[P], AggregateXPathConfig[P]>
+  }
+
+
+
+
+  export type XPathConfigGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: XPathConfigWhereInput
+    orderBy?: XPathConfigOrderByWithAggregationInput | XPathConfigOrderByWithAggregationInput[]
+    by: XPathConfigScalarFieldEnum[] | XPathConfigScalarFieldEnum
+    having?: XPathConfigScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: XPathConfigCountAggregateInputType | true
+    _avg?: XPathConfigAvgAggregateInputType
+    _sum?: XPathConfigSumAggregateInputType
+    _min?: XPathConfigMinAggregateInputType
+    _max?: XPathConfigMaxAggregateInputType
+  }
+
+  export type XPathConfigGroupByOutputType = {
+    id: number
+    indexUrl: string
+    itemXPath: string
+    paginationNextXPath: string
+    titleXPath: string
+    contentXPath: string
+    authorXPath: string
+    dateXPath: string
+    paginationLimit: number
+    _count: XPathConfigCountAggregateOutputType | null
+    _avg: XPathConfigAvgAggregateOutputType | null
+    _sum: XPathConfigSumAggregateOutputType | null
+    _min: XPathConfigMinAggregateOutputType | null
+    _max: XPathConfigMaxAggregateOutputType | null
+  }
+
+  type GetXPathConfigGroupByPayload<T extends XPathConfigGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<XPathConfigGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof XPathConfigGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], XPathConfigGroupByOutputType[P]>
+            : GetScalarType<T[P], XPathConfigGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type XPathConfigSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    indexUrl?: boolean
+    itemXPath?: boolean
+    paginationNextXPath?: boolean
+    titleXPath?: boolean
+    contentXPath?: boolean
+    authorXPath?: boolean
+    dateXPath?: boolean
+    paginationLimit?: boolean
+    blog?: boolean | XPathConfig$blogArgs<ExtArgs>
+  }, ExtArgs["result"]["xPathConfig"]>
+
+  export type XPathConfigSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    indexUrl?: boolean
+    itemXPath?: boolean
+    paginationNextXPath?: boolean
+    titleXPath?: boolean
+    contentXPath?: boolean
+    authorXPath?: boolean
+    dateXPath?: boolean
+    paginationLimit?: boolean
+  }, ExtArgs["result"]["xPathConfig"]>
+
+  export type XPathConfigSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    indexUrl?: boolean
+    itemXPath?: boolean
+    paginationNextXPath?: boolean
+    titleXPath?: boolean
+    contentXPath?: boolean
+    authorXPath?: boolean
+    dateXPath?: boolean
+    paginationLimit?: boolean
+  }, ExtArgs["result"]["xPathConfig"]>
+
+  export type XPathConfigSelectScalar = {
+    id?: boolean
+    indexUrl?: boolean
+    itemXPath?: boolean
+    paginationNextXPath?: boolean
+    titleXPath?: boolean
+    contentXPath?: boolean
+    authorXPath?: boolean
+    dateXPath?: boolean
+    paginationLimit?: boolean
+  }
+
+  export type XPathConfigOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "indexUrl" | "itemXPath" | "paginationNextXPath" | "titleXPath" | "contentXPath" | "authorXPath" | "dateXPath" | "paginationLimit", ExtArgs["result"]["xPathConfig"]>
+  export type XPathConfigInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    blog?: boolean | XPathConfig$blogArgs<ExtArgs>
+  }
+  export type XPathConfigIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type XPathConfigIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $XPathConfigPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "XPathConfig"
+    objects: {
+      blog: Prisma.$BlogPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      indexUrl: string
+      itemXPath: string
+      paginationNextXPath: string
+      titleXPath: string
+      contentXPath: string
+      authorXPath: string
+      dateXPath: string
+      paginationLimit: number
+    }, ExtArgs["result"]["xPathConfig"]>
+    composites: {}
+  }
+
+  type XPathConfigGetPayload<S extends boolean | null | undefined | XPathConfigDefaultArgs> = $Result.GetResult<Prisma.$XPathConfigPayload, S>
+
+  type XPathConfigCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<XPathConfigFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: XPathConfigCountAggregateInputType | true
+    }
+
+  export interface XPathConfigDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['XPathConfig'], meta: { name: 'XPathConfig' } }
+    /**
+     * Find zero or one XPathConfig that matches the filter.
+     * @param {XPathConfigFindUniqueArgs} args - Arguments to find a XPathConfig
+     * @example
+     * // Get one XPathConfig
+     * const xPathConfig = await prisma.xPathConfig.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends XPathConfigFindUniqueArgs>(args: SelectSubset<T, XPathConfigFindUniqueArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one XPathConfig that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {XPathConfigFindUniqueOrThrowArgs} args - Arguments to find a XPathConfig
+     * @example
+     * // Get one XPathConfig
+     * const xPathConfig = await prisma.xPathConfig.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends XPathConfigFindUniqueOrThrowArgs>(args: SelectSubset<T, XPathConfigFindUniqueOrThrowArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first XPathConfig that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {XPathConfigFindFirstArgs} args - Arguments to find a XPathConfig
+     * @example
+     * // Get one XPathConfig
+     * const xPathConfig = await prisma.xPathConfig.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends XPathConfigFindFirstArgs>(args?: SelectSubset<T, XPathConfigFindFirstArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first XPathConfig that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {XPathConfigFindFirstOrThrowArgs} args - Arguments to find a XPathConfig
+     * @example
+     * // Get one XPathConfig
+     * const xPathConfig = await prisma.xPathConfig.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends XPathConfigFindFirstOrThrowArgs>(args?: SelectSubset<T, XPathConfigFindFirstOrThrowArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more XPathConfigs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {XPathConfigFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all XPathConfigs
+     * const xPathConfigs = await prisma.xPathConfig.findMany()
+     * 
+     * // Get first 10 XPathConfigs
+     * const xPathConfigs = await prisma.xPathConfig.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const xPathConfigWithIdOnly = await prisma.xPathConfig.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends XPathConfigFindManyArgs>(args?: SelectSubset<T, XPathConfigFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a XPathConfig.
+     * @param {XPathConfigCreateArgs} args - Arguments to create a XPathConfig.
+     * @example
+     * // Create one XPathConfig
+     * const XPathConfig = await prisma.xPathConfig.create({
+     *   data: {
+     *     // ... data to create a XPathConfig
+     *   }
+     * })
+     * 
+     */
+    create<T extends XPathConfigCreateArgs>(args: SelectSubset<T, XPathConfigCreateArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many XPathConfigs.
+     * @param {XPathConfigCreateManyArgs} args - Arguments to create many XPathConfigs.
+     * @example
+     * // Create many XPathConfigs
+     * const xPathConfig = await prisma.xPathConfig.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends XPathConfigCreateManyArgs>(args?: SelectSubset<T, XPathConfigCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many XPathConfigs and returns the data saved in the database.
+     * @param {XPathConfigCreateManyAndReturnArgs} args - Arguments to create many XPathConfigs.
+     * @example
+     * // Create many XPathConfigs
+     * const xPathConfig = await prisma.xPathConfig.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many XPathConfigs and only return the `id`
+     * const xPathConfigWithIdOnly = await prisma.xPathConfig.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends XPathConfigCreateManyAndReturnArgs>(args?: SelectSubset<T, XPathConfigCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a XPathConfig.
+     * @param {XPathConfigDeleteArgs} args - Arguments to delete one XPathConfig.
+     * @example
+     * // Delete one XPathConfig
+     * const XPathConfig = await prisma.xPathConfig.delete({
+     *   where: {
+     *     // ... filter to delete one XPathConfig
+     *   }
+     * })
+     * 
+     */
+    delete<T extends XPathConfigDeleteArgs>(args: SelectSubset<T, XPathConfigDeleteArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one XPathConfig.
+     * @param {XPathConfigUpdateArgs} args - Arguments to update one XPathConfig.
+     * @example
+     * // Update one XPathConfig
+     * const xPathConfig = await prisma.xPathConfig.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends XPathConfigUpdateArgs>(args: SelectSubset<T, XPathConfigUpdateArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more XPathConfigs.
+     * @param {XPathConfigDeleteManyArgs} args - Arguments to filter XPathConfigs to delete.
+     * @example
+     * // Delete a few XPathConfigs
+     * const { count } = await prisma.xPathConfig.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends XPathConfigDeleteManyArgs>(args?: SelectSubset<T, XPathConfigDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more XPathConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {XPathConfigUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many XPathConfigs
+     * const xPathConfig = await prisma.xPathConfig.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends XPathConfigUpdateManyArgs>(args: SelectSubset<T, XPathConfigUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more XPathConfigs and returns the data updated in the database.
+     * @param {XPathConfigUpdateManyAndReturnArgs} args - Arguments to update many XPathConfigs.
+     * @example
+     * // Update many XPathConfigs
+     * const xPathConfig = await prisma.xPathConfig.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more XPathConfigs and only return the `id`
+     * const xPathConfigWithIdOnly = await prisma.xPathConfig.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends XPathConfigUpdateManyAndReturnArgs>(args: SelectSubset<T, XPathConfigUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one XPathConfig.
+     * @param {XPathConfigUpsertArgs} args - Arguments to update or create a XPathConfig.
+     * @example
+     * // Update or create a XPathConfig
+     * const xPathConfig = await prisma.xPathConfig.upsert({
+     *   create: {
+     *     // ... data to create a XPathConfig
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the XPathConfig we want to update
+     *   }
+     * })
+     */
+    upsert<T extends XPathConfigUpsertArgs>(args: SelectSubset<T, XPathConfigUpsertArgs<ExtArgs>>): Prisma__XPathConfigClient<$Result.GetResult<Prisma.$XPathConfigPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of XPathConfigs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {XPathConfigCountArgs} args - Arguments to filter XPathConfigs to count.
+     * @example
+     * // Count the number of XPathConfigs
+     * const count = await prisma.xPathConfig.count({
+     *   where: {
+     *     // ... the filter for the XPathConfigs we want to count
+     *   }
+     * })
+    **/
+    count<T extends XPathConfigCountArgs>(
+      args?: Subset<T, XPathConfigCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], XPathConfigCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a XPathConfig.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {XPathConfigAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends XPathConfigAggregateArgs>(args: Subset<T, XPathConfigAggregateArgs>): Prisma.PrismaPromise<GetXPathConfigAggregateType<T>>
+
+    /**
+     * Group by XPathConfig.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {XPathConfigGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends XPathConfigGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: XPathConfigGroupByArgs['orderBy'] }
+        : { orderBy?: XPathConfigGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, XPathConfigGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetXPathConfigGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the XPathConfig model
+   */
+  readonly fields: XPathConfigFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for XPathConfig.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__XPathConfigClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    blog<T extends XPathConfig$blogArgs<ExtArgs> = {}>(args?: Subset<T, XPathConfig$blogArgs<ExtArgs>>): Prisma__BlogClient<$Result.GetResult<Prisma.$BlogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the XPathConfig model
+   */
+  interface XPathConfigFieldRefs {
+    readonly id: FieldRef<"XPathConfig", 'Int'>
+    readonly indexUrl: FieldRef<"XPathConfig", 'String'>
+    readonly itemXPath: FieldRef<"XPathConfig", 'String'>
+    readonly paginationNextXPath: FieldRef<"XPathConfig", 'String'>
+    readonly titleXPath: FieldRef<"XPathConfig", 'String'>
+    readonly contentXPath: FieldRef<"XPathConfig", 'String'>
+    readonly authorXPath: FieldRef<"XPathConfig", 'String'>
+    readonly dateXPath: FieldRef<"XPathConfig", 'String'>
+    readonly paginationLimit: FieldRef<"XPathConfig", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * XPathConfig findUnique
+   */
+  export type XPathConfigFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which XPathConfig to fetch.
+     */
+    where: XPathConfigWhereUniqueInput
+  }
+
+  /**
+   * XPathConfig findUniqueOrThrow
+   */
+  export type XPathConfigFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which XPathConfig to fetch.
+     */
+    where: XPathConfigWhereUniqueInput
+  }
+
+  /**
+   * XPathConfig findFirst
+   */
+  export type XPathConfigFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which XPathConfig to fetch.
+     */
+    where?: XPathConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of XPathConfigs to fetch.
+     */
+    orderBy?: XPathConfigOrderByWithRelationInput | XPathConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for XPathConfigs.
+     */
+    cursor?: XPathConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` XPathConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` XPathConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of XPathConfigs.
+     */
+    distinct?: XPathConfigScalarFieldEnum | XPathConfigScalarFieldEnum[]
+  }
+
+  /**
+   * XPathConfig findFirstOrThrow
+   */
+  export type XPathConfigFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which XPathConfig to fetch.
+     */
+    where?: XPathConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of XPathConfigs to fetch.
+     */
+    orderBy?: XPathConfigOrderByWithRelationInput | XPathConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for XPathConfigs.
+     */
+    cursor?: XPathConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` XPathConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` XPathConfigs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of XPathConfigs.
+     */
+    distinct?: XPathConfigScalarFieldEnum | XPathConfigScalarFieldEnum[]
+  }
+
+  /**
+   * XPathConfig findMany
+   */
+  export type XPathConfigFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * Filter, which XPathConfigs to fetch.
+     */
+    where?: XPathConfigWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of XPathConfigs to fetch.
+     */
+    orderBy?: XPathConfigOrderByWithRelationInput | XPathConfigOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing XPathConfigs.
+     */
+    cursor?: XPathConfigWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` XPathConfigs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` XPathConfigs.
+     */
+    skip?: number
+    distinct?: XPathConfigScalarFieldEnum | XPathConfigScalarFieldEnum[]
+  }
+
+  /**
+   * XPathConfig create
+   */
+  export type XPathConfigCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * The data needed to create a XPathConfig.
+     */
+    data: XOR<XPathConfigCreateInput, XPathConfigUncheckedCreateInput>
+  }
+
+  /**
+   * XPathConfig createMany
+   */
+  export type XPathConfigCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many XPathConfigs.
+     */
+    data: XPathConfigCreateManyInput | XPathConfigCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * XPathConfig createManyAndReturn
+   */
+  export type XPathConfigCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * The data used to create many XPathConfigs.
+     */
+    data: XPathConfigCreateManyInput | XPathConfigCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * XPathConfig update
+   */
+  export type XPathConfigUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * The data needed to update a XPathConfig.
+     */
+    data: XOR<XPathConfigUpdateInput, XPathConfigUncheckedUpdateInput>
+    /**
+     * Choose, which XPathConfig to update.
+     */
+    where: XPathConfigWhereUniqueInput
+  }
+
+  /**
+   * XPathConfig updateMany
+   */
+  export type XPathConfigUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update XPathConfigs.
+     */
+    data: XOR<XPathConfigUpdateManyMutationInput, XPathConfigUncheckedUpdateManyInput>
+    /**
+     * Filter which XPathConfigs to update
+     */
+    where?: XPathConfigWhereInput
+    /**
+     * Limit how many XPathConfigs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * XPathConfig updateManyAndReturn
+   */
+  export type XPathConfigUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * The data used to update XPathConfigs.
+     */
+    data: XOR<XPathConfigUpdateManyMutationInput, XPathConfigUncheckedUpdateManyInput>
+    /**
+     * Filter which XPathConfigs to update
+     */
+    where?: XPathConfigWhereInput
+    /**
+     * Limit how many XPathConfigs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * XPathConfig upsert
+   */
+  export type XPathConfigUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * The filter to search for the XPathConfig to update in case it exists.
+     */
+    where: XPathConfigWhereUniqueInput
+    /**
+     * In case the XPathConfig found by the `where` argument doesn't exist, create a new XPathConfig with this data.
+     */
+    create: XOR<XPathConfigCreateInput, XPathConfigUncheckedCreateInput>
+    /**
+     * In case the XPathConfig was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<XPathConfigUpdateInput, XPathConfigUncheckedUpdateInput>
+  }
+
+  /**
+   * XPathConfig delete
+   */
+  export type XPathConfigDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
+    /**
+     * Filter which XPathConfig to delete.
+     */
+    where: XPathConfigWhereUniqueInput
+  }
+
+  /**
+   * XPathConfig deleteMany
+   */
+  export type XPathConfigDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which XPathConfigs to delete
+     */
+    where?: XPathConfigWhereInput
+    /**
+     * Limit how many XPathConfigs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * XPathConfig.blog
+   */
+  export type XPathConfig$blogArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Blog
+     */
+    select?: BlogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Blog
+     */
+    omit?: BlogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BlogInclude<ExtArgs> | null
+    where?: BlogWhereInput
+  }
+
+  /**
+   * XPathConfig without action
+   */
+  export type XPathConfigDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the XPathConfig
+     */
+    select?: XPathConfigSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the XPathConfig
+     */
+    omit?: XPathConfigOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: XPathConfigInclude<ExtArgs> | null
   }
 
 
@@ -3288,11 +4586,27 @@ export namespace Prisma {
     platform: 'platform',
     lastScrapedAt: 'lastScrapedAt',
     totalPosts: 'totalPosts',
+    xPathId: 'xPathId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type BlogScalarFieldEnum = (typeof BlogScalarFieldEnum)[keyof typeof BlogScalarFieldEnum]
+
+
+  export const XPathConfigScalarFieldEnum: {
+    id: 'id',
+    indexUrl: 'indexUrl',
+    itemXPath: 'itemXPath',
+    paginationNextXPath: 'paginationNextXPath',
+    titleXPath: 'titleXPath',
+    contentXPath: 'contentXPath',
+    authorXPath: 'authorXPath',
+    dateXPath: 'dateXPath',
+    paginationLimit: 'paginationLimit'
+  };
+
+  export type XPathConfigScalarFieldEnum = (typeof XPathConfigScalarFieldEnum)[keyof typeof XPathConfigScalarFieldEnum]
 
 
   export const PostScalarFieldEnum: {
@@ -3438,8 +4752,10 @@ export namespace Prisma {
     platform?: StringFilter<"Blog"> | string
     lastScrapedAt?: DateTimeNullableFilter<"Blog"> | Date | string | null
     totalPosts?: IntFilter<"Blog"> | number
+    xPathId?: IntNullableFilter<"Blog"> | number | null
     createdAt?: DateTimeFilter<"Blog"> | Date | string
     updatedAt?: DateTimeFilter<"Blog"> | Date | string
+    xPath?: XOR<XPathConfigNullableScalarRelationFilter, XPathConfigWhereInput> | null
     posts?: PostListRelationFilter
   }
 
@@ -3449,14 +4765,17 @@ export namespace Prisma {
     platform?: SortOrder
     lastScrapedAt?: SortOrderInput | SortOrder
     totalPosts?: SortOrder
+    xPathId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    xPath?: XPathConfigOrderByWithRelationInput
     posts?: PostOrderByRelationAggregateInput
   }
 
   export type BlogWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     baseUrl?: string
+    xPathId?: number
     AND?: BlogWhereInput | BlogWhereInput[]
     OR?: BlogWhereInput[]
     NOT?: BlogWhereInput | BlogWhereInput[]
@@ -3465,8 +4784,9 @@ export namespace Prisma {
     totalPosts?: IntFilter<"Blog"> | number
     createdAt?: DateTimeFilter<"Blog"> | Date | string
     updatedAt?: DateTimeFilter<"Blog"> | Date | string
+    xPath?: XOR<XPathConfigNullableScalarRelationFilter, XPathConfigWhereInput> | null
     posts?: PostListRelationFilter
-  }, "id" | "baseUrl">
+  }, "id" | "baseUrl" | "xPathId">
 
   export type BlogOrderByWithAggregationInput = {
     id?: SortOrder
@@ -3474,6 +4794,7 @@ export namespace Prisma {
     platform?: SortOrder
     lastScrapedAt?: SortOrderInput | SortOrder
     totalPosts?: SortOrder
+    xPathId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: BlogCountOrderByAggregateInput
@@ -3492,8 +4813,86 @@ export namespace Prisma {
     platform?: StringWithAggregatesFilter<"Blog"> | string
     lastScrapedAt?: DateTimeNullableWithAggregatesFilter<"Blog"> | Date | string | null
     totalPosts?: IntWithAggregatesFilter<"Blog"> | number
+    xPathId?: IntNullableWithAggregatesFilter<"Blog"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Blog"> | Date | string
+  }
+
+  export type XPathConfigWhereInput = {
+    AND?: XPathConfigWhereInput | XPathConfigWhereInput[]
+    OR?: XPathConfigWhereInput[]
+    NOT?: XPathConfigWhereInput | XPathConfigWhereInput[]
+    id?: IntFilter<"XPathConfig"> | number
+    indexUrl?: StringFilter<"XPathConfig"> | string
+    itemXPath?: StringFilter<"XPathConfig"> | string
+    paginationNextXPath?: StringFilter<"XPathConfig"> | string
+    titleXPath?: StringFilter<"XPathConfig"> | string
+    contentXPath?: StringFilter<"XPathConfig"> | string
+    authorXPath?: StringFilter<"XPathConfig"> | string
+    dateXPath?: StringFilter<"XPathConfig"> | string
+    paginationLimit?: IntFilter<"XPathConfig"> | number
+    blog?: XOR<BlogNullableScalarRelationFilter, BlogWhereInput> | null
+  }
+
+  export type XPathConfigOrderByWithRelationInput = {
+    id?: SortOrder
+    indexUrl?: SortOrder
+    itemXPath?: SortOrder
+    paginationNextXPath?: SortOrder
+    titleXPath?: SortOrder
+    contentXPath?: SortOrder
+    authorXPath?: SortOrder
+    dateXPath?: SortOrder
+    paginationLimit?: SortOrder
+    blog?: BlogOrderByWithRelationInput
+  }
+
+  export type XPathConfigWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: XPathConfigWhereInput | XPathConfigWhereInput[]
+    OR?: XPathConfigWhereInput[]
+    NOT?: XPathConfigWhereInput | XPathConfigWhereInput[]
+    indexUrl?: StringFilter<"XPathConfig"> | string
+    itemXPath?: StringFilter<"XPathConfig"> | string
+    paginationNextXPath?: StringFilter<"XPathConfig"> | string
+    titleXPath?: StringFilter<"XPathConfig"> | string
+    contentXPath?: StringFilter<"XPathConfig"> | string
+    authorXPath?: StringFilter<"XPathConfig"> | string
+    dateXPath?: StringFilter<"XPathConfig"> | string
+    paginationLimit?: IntFilter<"XPathConfig"> | number
+    blog?: XOR<BlogNullableScalarRelationFilter, BlogWhereInput> | null
+  }, "id">
+
+  export type XPathConfigOrderByWithAggregationInput = {
+    id?: SortOrder
+    indexUrl?: SortOrder
+    itemXPath?: SortOrder
+    paginationNextXPath?: SortOrder
+    titleXPath?: SortOrder
+    contentXPath?: SortOrder
+    authorXPath?: SortOrder
+    dateXPath?: SortOrder
+    paginationLimit?: SortOrder
+    _count?: XPathConfigCountOrderByAggregateInput
+    _avg?: XPathConfigAvgOrderByAggregateInput
+    _max?: XPathConfigMaxOrderByAggregateInput
+    _min?: XPathConfigMinOrderByAggregateInput
+    _sum?: XPathConfigSumOrderByAggregateInput
+  }
+
+  export type XPathConfigScalarWhereWithAggregatesInput = {
+    AND?: XPathConfigScalarWhereWithAggregatesInput | XPathConfigScalarWhereWithAggregatesInput[]
+    OR?: XPathConfigScalarWhereWithAggregatesInput[]
+    NOT?: XPathConfigScalarWhereWithAggregatesInput | XPathConfigScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"XPathConfig"> | number
+    indexUrl?: StringWithAggregatesFilter<"XPathConfig"> | string
+    itemXPath?: StringWithAggregatesFilter<"XPathConfig"> | string
+    paginationNextXPath?: StringWithAggregatesFilter<"XPathConfig"> | string
+    titleXPath?: StringWithAggregatesFilter<"XPathConfig"> | string
+    contentXPath?: StringWithAggregatesFilter<"XPathConfig"> | string
+    authorXPath?: StringWithAggregatesFilter<"XPathConfig"> | string
+    dateXPath?: StringWithAggregatesFilter<"XPathConfig"> | string
+    paginationLimit?: IntWithAggregatesFilter<"XPathConfig"> | number
   }
 
   export type PostWhereInput = {
@@ -3581,6 +4980,7 @@ export namespace Prisma {
     totalPosts?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    xPath?: XPathConfigCreateNestedOneWithoutBlogInput
     posts?: PostCreateNestedManyWithoutBlogInput
   }
 
@@ -3590,6 +4990,7 @@ export namespace Prisma {
     platform: string
     lastScrapedAt?: Date | string | null
     totalPosts?: number
+    xPathId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
     posts?: PostUncheckedCreateNestedManyWithoutBlogInput
@@ -3602,6 +5003,7 @@ export namespace Prisma {
     totalPosts?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xPath?: XPathConfigUpdateOneWithoutBlogNestedInput
     posts?: PostUpdateManyWithoutBlogNestedInput
   }
 
@@ -3611,6 +5013,7 @@ export namespace Prisma {
     platform?: StringFieldUpdateOperationsInput | string
     lastScrapedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     totalPosts?: IntFieldUpdateOperationsInput | number
+    xPathId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     posts?: PostUncheckedUpdateManyWithoutBlogNestedInput
@@ -3622,6 +5025,7 @@ export namespace Prisma {
     platform: string
     lastScrapedAt?: Date | string | null
     totalPosts?: number
+    xPathId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3641,8 +5045,94 @@ export namespace Prisma {
     platform?: StringFieldUpdateOperationsInput | string
     lastScrapedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     totalPosts?: IntFieldUpdateOperationsInput | number
+    xPathId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type XPathConfigCreateInput = {
+    indexUrl: string
+    itemXPath: string
+    paginationNextXPath: string
+    titleXPath: string
+    contentXPath: string
+    authorXPath: string
+    dateXPath: string
+    paginationLimit: number
+    blog?: BlogCreateNestedOneWithoutXPathInput
+  }
+
+  export type XPathConfigUncheckedCreateInput = {
+    id?: number
+    indexUrl: string
+    itemXPath: string
+    paginationNextXPath: string
+    titleXPath: string
+    contentXPath: string
+    authorXPath: string
+    dateXPath: string
+    paginationLimit: number
+    blog?: BlogUncheckedCreateNestedOneWithoutXPathInput
+  }
+
+  export type XPathConfigUpdateInput = {
+    indexUrl?: StringFieldUpdateOperationsInput | string
+    itemXPath?: StringFieldUpdateOperationsInput | string
+    paginationNextXPath?: StringFieldUpdateOperationsInput | string
+    titleXPath?: StringFieldUpdateOperationsInput | string
+    contentXPath?: StringFieldUpdateOperationsInput | string
+    authorXPath?: StringFieldUpdateOperationsInput | string
+    dateXPath?: StringFieldUpdateOperationsInput | string
+    paginationLimit?: IntFieldUpdateOperationsInput | number
+    blog?: BlogUpdateOneWithoutXPathNestedInput
+  }
+
+  export type XPathConfigUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    indexUrl?: StringFieldUpdateOperationsInput | string
+    itemXPath?: StringFieldUpdateOperationsInput | string
+    paginationNextXPath?: StringFieldUpdateOperationsInput | string
+    titleXPath?: StringFieldUpdateOperationsInput | string
+    contentXPath?: StringFieldUpdateOperationsInput | string
+    authorXPath?: StringFieldUpdateOperationsInput | string
+    dateXPath?: StringFieldUpdateOperationsInput | string
+    paginationLimit?: IntFieldUpdateOperationsInput | number
+    blog?: BlogUncheckedUpdateOneWithoutXPathNestedInput
+  }
+
+  export type XPathConfigCreateManyInput = {
+    id?: number
+    indexUrl: string
+    itemXPath: string
+    paginationNextXPath: string
+    titleXPath: string
+    contentXPath: string
+    authorXPath: string
+    dateXPath: string
+    paginationLimit: number
+  }
+
+  export type XPathConfigUpdateManyMutationInput = {
+    indexUrl?: StringFieldUpdateOperationsInput | string
+    itemXPath?: StringFieldUpdateOperationsInput | string
+    paginationNextXPath?: StringFieldUpdateOperationsInput | string
+    titleXPath?: StringFieldUpdateOperationsInput | string
+    contentXPath?: StringFieldUpdateOperationsInput | string
+    authorXPath?: StringFieldUpdateOperationsInput | string
+    dateXPath?: StringFieldUpdateOperationsInput | string
+    paginationLimit?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type XPathConfigUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    indexUrl?: StringFieldUpdateOperationsInput | string
+    itemXPath?: StringFieldUpdateOperationsInput | string
+    paginationNextXPath?: StringFieldUpdateOperationsInput | string
+    titleXPath?: StringFieldUpdateOperationsInput | string
+    contentXPath?: StringFieldUpdateOperationsInput | string
+    authorXPath?: StringFieldUpdateOperationsInput | string
+    dateXPath?: StringFieldUpdateOperationsInput | string
+    paginationLimit?: IntFieldUpdateOperationsInput | number
   }
 
   export type PostCreateInput = {
@@ -3762,6 +5252,17 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -3771,6 +5272,11 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type XPathConfigNullableScalarRelationFilter = {
+    is?: XPathConfigWhereInput | null
+    isNot?: XPathConfigWhereInput | null
   }
 
   export type PostListRelationFilter = {
@@ -3794,6 +5300,7 @@ export namespace Prisma {
     platform?: SortOrder
     lastScrapedAt?: SortOrder
     totalPosts?: SortOrder
+    xPathId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3801,6 +5308,7 @@ export namespace Prisma {
   export type BlogAvgOrderByAggregateInput = {
     id?: SortOrder
     totalPosts?: SortOrder
+    xPathId?: SortOrder
   }
 
   export type BlogMaxOrderByAggregateInput = {
@@ -3809,6 +5317,7 @@ export namespace Prisma {
     platform?: SortOrder
     lastScrapedAt?: SortOrder
     totalPosts?: SortOrder
+    xPathId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3819,6 +5328,7 @@ export namespace Prisma {
     platform?: SortOrder
     lastScrapedAt?: SortOrder
     totalPosts?: SortOrder
+    xPathId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3826,6 +5336,7 @@ export namespace Prisma {
   export type BlogSumOrderByAggregateInput = {
     id?: SortOrder
     totalPosts?: SortOrder
+    xPathId?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -3876,6 +5387,22 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -3888,6 +5415,57 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type BlogNullableScalarRelationFilter = {
+    is?: BlogWhereInput | null
+    isNot?: BlogWhereInput | null
+  }
+
+  export type XPathConfigCountOrderByAggregateInput = {
+    id?: SortOrder
+    indexUrl?: SortOrder
+    itemXPath?: SortOrder
+    paginationNextXPath?: SortOrder
+    titleXPath?: SortOrder
+    contentXPath?: SortOrder
+    authorXPath?: SortOrder
+    dateXPath?: SortOrder
+    paginationLimit?: SortOrder
+  }
+
+  export type XPathConfigAvgOrderByAggregateInput = {
+    id?: SortOrder
+    paginationLimit?: SortOrder
+  }
+
+  export type XPathConfigMaxOrderByAggregateInput = {
+    id?: SortOrder
+    indexUrl?: SortOrder
+    itemXPath?: SortOrder
+    paginationNextXPath?: SortOrder
+    titleXPath?: SortOrder
+    contentXPath?: SortOrder
+    authorXPath?: SortOrder
+    dateXPath?: SortOrder
+    paginationLimit?: SortOrder
+  }
+
+  export type XPathConfigMinOrderByAggregateInput = {
+    id?: SortOrder
+    indexUrl?: SortOrder
+    itemXPath?: SortOrder
+    paginationNextXPath?: SortOrder
+    titleXPath?: SortOrder
+    contentXPath?: SortOrder
+    authorXPath?: SortOrder
+    dateXPath?: SortOrder
+    paginationLimit?: SortOrder
+  }
+
+  export type XPathConfigSumOrderByAggregateInput = {
+    id?: SortOrder
+    paginationLimit?: SortOrder
   }
   export type JsonNullableFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -3993,6 +5571,12 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type XPathConfigCreateNestedOneWithoutBlogInput = {
+    create?: XOR<XPathConfigCreateWithoutBlogInput, XPathConfigUncheckedCreateWithoutBlogInput>
+    connectOrCreate?: XPathConfigCreateOrConnectWithoutBlogInput
+    connect?: XPathConfigWhereUniqueInput
+  }
+
   export type PostCreateNestedManyWithoutBlogInput = {
     create?: XOR<PostCreateWithoutBlogInput, PostUncheckedCreateWithoutBlogInput> | PostCreateWithoutBlogInput[] | PostUncheckedCreateWithoutBlogInput[]
     connectOrCreate?: PostCreateOrConnectWithoutBlogInput | PostCreateOrConnectWithoutBlogInput[]
@@ -4027,6 +5611,16 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type XPathConfigUpdateOneWithoutBlogNestedInput = {
+    create?: XOR<XPathConfigCreateWithoutBlogInput, XPathConfigUncheckedCreateWithoutBlogInput>
+    connectOrCreate?: XPathConfigCreateOrConnectWithoutBlogInput
+    upsert?: XPathConfigUpsertWithoutBlogInput
+    disconnect?: XPathConfigWhereInput | boolean
+    delete?: XPathConfigWhereInput | boolean
+    connect?: XPathConfigWhereUniqueInput
+    update?: XOR<XOR<XPathConfigUpdateToOneWithWhereWithoutBlogInput, XPathConfigUpdateWithoutBlogInput>, XPathConfigUncheckedUpdateWithoutBlogInput>
+  }
+
   export type PostUpdateManyWithoutBlogNestedInput = {
     create?: XOR<PostCreateWithoutBlogInput, PostUncheckedCreateWithoutBlogInput> | PostCreateWithoutBlogInput[] | PostUncheckedCreateWithoutBlogInput[]
     connectOrCreate?: PostCreateOrConnectWithoutBlogInput | PostCreateOrConnectWithoutBlogInput[]
@@ -4041,6 +5635,14 @@ export namespace Prisma {
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type PostUncheckedUpdateManyWithoutBlogNestedInput = {
     create?: XOR<PostCreateWithoutBlogInput, PostUncheckedCreateWithoutBlogInput> | PostCreateWithoutBlogInput[] | PostUncheckedCreateWithoutBlogInput[]
     connectOrCreate?: PostCreateOrConnectWithoutBlogInput | PostCreateOrConnectWithoutBlogInput[]
@@ -4053,6 +5655,38 @@ export namespace Prisma {
     update?: PostUpdateWithWhereUniqueWithoutBlogInput | PostUpdateWithWhereUniqueWithoutBlogInput[]
     updateMany?: PostUpdateManyWithWhereWithoutBlogInput | PostUpdateManyWithWhereWithoutBlogInput[]
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  }
+
+  export type BlogCreateNestedOneWithoutXPathInput = {
+    create?: XOR<BlogCreateWithoutXPathInput, BlogUncheckedCreateWithoutXPathInput>
+    connectOrCreate?: BlogCreateOrConnectWithoutXPathInput
+    connect?: BlogWhereUniqueInput
+  }
+
+  export type BlogUncheckedCreateNestedOneWithoutXPathInput = {
+    create?: XOR<BlogCreateWithoutXPathInput, BlogUncheckedCreateWithoutXPathInput>
+    connectOrCreate?: BlogCreateOrConnectWithoutXPathInput
+    connect?: BlogWhereUniqueInput
+  }
+
+  export type BlogUpdateOneWithoutXPathNestedInput = {
+    create?: XOR<BlogCreateWithoutXPathInput, BlogUncheckedCreateWithoutXPathInput>
+    connectOrCreate?: BlogCreateOrConnectWithoutXPathInput
+    upsert?: BlogUpsertWithoutXPathInput
+    disconnect?: BlogWhereInput | boolean
+    delete?: BlogWhereInput | boolean
+    connect?: BlogWhereUniqueInput
+    update?: XOR<XOR<BlogUpdateToOneWithWhereWithoutXPathInput, BlogUpdateWithoutXPathInput>, BlogUncheckedUpdateWithoutXPathInput>
+  }
+
+  export type BlogUncheckedUpdateOneWithoutXPathNestedInput = {
+    create?: XOR<BlogCreateWithoutXPathInput, BlogUncheckedCreateWithoutXPathInput>
+    connectOrCreate?: BlogCreateOrConnectWithoutXPathInput
+    upsert?: BlogUpsertWithoutXPathInput
+    disconnect?: BlogWhereInput | boolean
+    delete?: BlogWhereInput | boolean
+    connect?: BlogWhereUniqueInput
+    update?: XOR<XOR<BlogUpdateToOneWithWhereWithoutXPathInput, BlogUpdateWithoutXPathInput>, BlogUncheckedUpdateWithoutXPathInput>
   }
 
   export type BlogCreateNestedOneWithoutPostsInput = {
@@ -4103,6 +5737,17 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -4174,7 +5819,7 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -4182,7 +5827,23 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -4222,6 +5883,34 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type XPathConfigCreateWithoutBlogInput = {
+    indexUrl: string
+    itemXPath: string
+    paginationNextXPath: string
+    titleXPath: string
+    contentXPath: string
+    authorXPath: string
+    dateXPath: string
+    paginationLimit: number
+  }
+
+  export type XPathConfigUncheckedCreateWithoutBlogInput = {
+    id?: number
+    indexUrl: string
+    itemXPath: string
+    paginationNextXPath: string
+    titleXPath: string
+    contentXPath: string
+    authorXPath: string
+    dateXPath: string
+    paginationLimit: number
+  }
+
+  export type XPathConfigCreateOrConnectWithoutBlogInput = {
+    where: XPathConfigWhereUniqueInput
+    create: XOR<XPathConfigCreateWithoutBlogInput, XPathConfigUncheckedCreateWithoutBlogInput>
+  }
+
   export type PostCreateWithoutBlogInput = {
     externalId: string
     title: string
@@ -4251,6 +5940,40 @@ export namespace Prisma {
   export type PostCreateManyBlogInputEnvelope = {
     data: PostCreateManyBlogInput | PostCreateManyBlogInput[]
     skipDuplicates?: boolean
+  }
+
+  export type XPathConfigUpsertWithoutBlogInput = {
+    update: XOR<XPathConfigUpdateWithoutBlogInput, XPathConfigUncheckedUpdateWithoutBlogInput>
+    create: XOR<XPathConfigCreateWithoutBlogInput, XPathConfigUncheckedCreateWithoutBlogInput>
+    where?: XPathConfigWhereInput
+  }
+
+  export type XPathConfigUpdateToOneWithWhereWithoutBlogInput = {
+    where?: XPathConfigWhereInput
+    data: XOR<XPathConfigUpdateWithoutBlogInput, XPathConfigUncheckedUpdateWithoutBlogInput>
+  }
+
+  export type XPathConfigUpdateWithoutBlogInput = {
+    indexUrl?: StringFieldUpdateOperationsInput | string
+    itemXPath?: StringFieldUpdateOperationsInput | string
+    paginationNextXPath?: StringFieldUpdateOperationsInput | string
+    titleXPath?: StringFieldUpdateOperationsInput | string
+    contentXPath?: StringFieldUpdateOperationsInput | string
+    authorXPath?: StringFieldUpdateOperationsInput | string
+    dateXPath?: StringFieldUpdateOperationsInput | string
+    paginationLimit?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type XPathConfigUncheckedUpdateWithoutBlogInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    indexUrl?: StringFieldUpdateOperationsInput | string
+    itemXPath?: StringFieldUpdateOperationsInput | string
+    paginationNextXPath?: StringFieldUpdateOperationsInput | string
+    titleXPath?: StringFieldUpdateOperationsInput | string
+    contentXPath?: StringFieldUpdateOperationsInput | string
+    authorXPath?: StringFieldUpdateOperationsInput | string
+    dateXPath?: StringFieldUpdateOperationsInput | string
+    paginationLimit?: IntFieldUpdateOperationsInput | number
   }
 
   export type PostUpsertWithWhereUniqueWithoutBlogInput = {
@@ -4284,6 +6007,64 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Post"> | Date | string
   }
 
+  export type BlogCreateWithoutXPathInput = {
+    baseUrl: string
+    platform: string
+    lastScrapedAt?: Date | string | null
+    totalPosts?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    posts?: PostCreateNestedManyWithoutBlogInput
+  }
+
+  export type BlogUncheckedCreateWithoutXPathInput = {
+    id?: number
+    baseUrl: string
+    platform: string
+    lastScrapedAt?: Date | string | null
+    totalPosts?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    posts?: PostUncheckedCreateNestedManyWithoutBlogInput
+  }
+
+  export type BlogCreateOrConnectWithoutXPathInput = {
+    where: BlogWhereUniqueInput
+    create: XOR<BlogCreateWithoutXPathInput, BlogUncheckedCreateWithoutXPathInput>
+  }
+
+  export type BlogUpsertWithoutXPathInput = {
+    update: XOR<BlogUpdateWithoutXPathInput, BlogUncheckedUpdateWithoutXPathInput>
+    create: XOR<BlogCreateWithoutXPathInput, BlogUncheckedCreateWithoutXPathInput>
+    where?: BlogWhereInput
+  }
+
+  export type BlogUpdateToOneWithWhereWithoutXPathInput = {
+    where?: BlogWhereInput
+    data: XOR<BlogUpdateWithoutXPathInput, BlogUncheckedUpdateWithoutXPathInput>
+  }
+
+  export type BlogUpdateWithoutXPathInput = {
+    baseUrl?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    lastScrapedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    totalPosts?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    posts?: PostUpdateManyWithoutBlogNestedInput
+  }
+
+  export type BlogUncheckedUpdateWithoutXPathInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    baseUrl?: StringFieldUpdateOperationsInput | string
+    platform?: StringFieldUpdateOperationsInput | string
+    lastScrapedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    totalPosts?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    posts?: PostUncheckedUpdateManyWithoutBlogNestedInput
+  }
+
   export type BlogCreateWithoutPostsInput = {
     baseUrl: string
     platform: string
@@ -4291,6 +6072,7 @@ export namespace Prisma {
     totalPosts?: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    xPath?: XPathConfigCreateNestedOneWithoutBlogInput
   }
 
   export type BlogUncheckedCreateWithoutPostsInput = {
@@ -4299,6 +6081,7 @@ export namespace Prisma {
     platform: string
     lastScrapedAt?: Date | string | null
     totalPosts?: number
+    xPathId?: number | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4326,6 +6109,7 @@ export namespace Prisma {
     totalPosts?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    xPath?: XPathConfigUpdateOneWithoutBlogNestedInput
   }
 
   export type BlogUncheckedUpdateWithoutPostsInput = {
@@ -4334,6 +6118,7 @@ export namespace Prisma {
     platform?: StringFieldUpdateOperationsInput | string
     lastScrapedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     totalPosts?: IntFieldUpdateOperationsInput | number
+    xPathId?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

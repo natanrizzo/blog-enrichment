@@ -9,15 +9,30 @@ datasource db {
 }
 
 model Blog {
-  id            Int       @id @default(autoincrement())
-  baseUrl       String    @unique
+  id            Int          @id @default(autoincrement())
+  baseUrl       String       @unique
   platform      String
   lastScrapedAt DateTime?
-  totalPosts    Int       @default(0)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  totalPosts    Int          @default(0)
+  xPath         XPathConfig? @relation(fields: [xPathId], references: [id])
+  xPathId       Int?         @unique
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
 
   posts Post[]
+}
+
+model XPathConfig {
+  id                  Int    @id @default(autoincrement())
+  blog                Blog?  @relation
+  indexUrl            String
+  itemXPath           String
+  paginationNextXPath String
+  titleXPath          String
+  contentXPath        String
+  authorXPath         String
+  dateXPath           String
+  paginationLimit     Int
 }
 
 model Post {

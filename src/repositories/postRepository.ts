@@ -1,7 +1,8 @@
+import { Post } from "../generated/prisma";
 import { PostData } from "../parsers/IParser";
 import prisma from "../prisma/prisma";
 
-export class PostRepository {
+export default class PostRepository {
     async upsert(websiteBlogId: number, data: PostData): Promise<void> {
         await prisma.post.upsert({
             where: {
@@ -41,6 +42,20 @@ export class PostRepository {
         });
 
         return await last?.publishedAt ?? null;
+    }
+
+    async getOnePostById(postId: number): Promise<Post | null> {
+        const post = await prisma.post.findFirst({
+            where: {
+                id: postId
+            }
+        });
+        return post;
+    }
+
+    async getAllPosts(): Promise<Post[]> {
+        const posts = await prisma.post.findMany();
+        return posts;
     }
 
     async countPosts(websiteBlogId: number): Promise<number> {

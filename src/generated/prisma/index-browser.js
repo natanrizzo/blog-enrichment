@@ -123,8 +123,21 @@ exports.Prisma.BlogScalarFieldEnum = {
   platform: 'platform',
   lastScrapedAt: 'lastScrapedAt',
   totalPosts: 'totalPosts',
+  xPathId: 'xPathId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.XPathConfigScalarFieldEnum = {
+  id: 'id',
+  indexUrl: 'indexUrl',
+  itemXPath: 'itemXPath',
+  paginationNextXPath: 'paginationNextXPath',
+  titleXPath: 'titleXPath',
+  contentXPath: 'contentXPath',
+  authorXPath: 'authorXPath',
+  dateXPath: 'dateXPath',
+  paginationLimit: 'paginationLimit'
 };
 
 exports.Prisma.PostScalarFieldEnum = {
@@ -168,6 +181,7 @@ exports.Prisma.JsonNullValueFilter = {
 
 exports.Prisma.ModelName = {
   Blog: 'Blog',
+  XPathConfig: 'XPathConfig',
   Post: 'Post'
 };
 
