@@ -58,6 +58,19 @@ export default class PostRepository {
         return posts;
     }
 
+    async updatePost(postId: number, postData: PostData): Promise<Post> {
+        const postFormated = this.mapPostData(postData);
+        
+        const post = await prisma.post.update({
+            where: {
+                id: postId
+            },
+            data: postFormated
+        });
+
+        return post;
+    }
+
     async countPosts(websiteBlogId: number): Promise<number> {
         return await prisma.post.count({ where: { blogId: websiteBlogId } });
     }
