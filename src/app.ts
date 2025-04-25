@@ -9,8 +9,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/post", postRoutes);
+app.use("/api/posts", postRoutes);
 app.use("/api/scraper", scraperRoutes);
-app.use("/api/blog", blogRoutes);
+app.use("/api/blogs", blogRoutes);
 
 export default app;

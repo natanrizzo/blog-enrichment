@@ -6,7 +6,7 @@ const router = Router();
 const postController = new PostController();
 
 
-router.get(":id", postController.getOnePostById);
+router.get("/:id", postController.getOnePostById);
 router.get("/", postController.getAllPosts);
 
 export default router;

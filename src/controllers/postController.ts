@@ -7,9 +7,9 @@ export class PostController {
     private aiService = new AIService();
 
     getOnePostById = async (req: Request, res: Response) => {
-        const { id } = req.body;
+        const { id } = req.params;
         
-        const post = await this.repo.getOnePostById(id);
+        const post = await this.repo.getOnePostById(Number(id));
         res.json(post);
     }
 
