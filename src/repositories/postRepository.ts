@@ -68,8 +68,6 @@ export default class PostRepository {
             extraData: postData.post.extraData ?? undefined
         };
     
-        console.log("Post Formated: ", postFormated);
-    
         const updatedPost = await prisma.post.update({
             where: {
                 id: postId
