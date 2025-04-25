@@ -27,7 +27,12 @@ export class DeepseekProvider implements IAiProvider {
                 }
             }
         );
-        
-        return response.data.choises[0].message.content.trim();
+        const choices = response.data.choices;
+
+        if (!choices || choices.length === 0) {
+            throw new Error("Deepseek API response malformed: no choices found.");
+        }
+
+        return choices[0].message.content.trim();
     }
 }

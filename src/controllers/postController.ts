@@ -22,14 +22,16 @@ export class PostController {
     updatePost = async (req: Request, res: Response) => {
         const { id } = req.params;
         const postData = req.body;
-        
+
         const updatedPost = await this.repo.updatePost(Number(id), postData);
         res.json(updatedPost);
     }
 
     summarizePost = async (req: Request, res: Response) => {
-        const { prompt } = req.body;
-        const sumText = await this.aiService.summarizeText(prompt);
+        const { text } = req.body;
+        console.log(text);
+        const sumText = await this.aiService.summarizeText(text);
+        console.log("Post resumido: ", sumText);
         res.json(sumText);
     }
 }

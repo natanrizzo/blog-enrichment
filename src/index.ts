@@ -8,11 +8,11 @@ async function main(): Promise<void> {
 
     await scraperService.runScraper(websiteBaseUrl, platform);
 
-    console.log("Scrapping finalizado!");
+    console.log("Scraping done!");
 
 }
 
 main().catch(e => {
-    console.error("Erro no scraping:", e);
+    console.error("Error while scraping:", e);
     process.exit(1);
 });

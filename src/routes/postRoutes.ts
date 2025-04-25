@@ -9,6 +9,6 @@ const postController = new PostController();
 router.get("/:id", postController.getOnePostById);
 router.get("/", postController.getAllPosts);
 router.post("/:id/update", postController.updatePost);
-router.post("/:id/summarize", postController.summarizePost);
+router.post("/summarize", postController.summarizePost);
 
 export default router;
