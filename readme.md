@@ -52,7 +52,7 @@ npm run scraper
 ```
 The CLI interface will prompt you to select the blogs from the database that you want to scrape.
 
-The scraper will then start scraping the selected blogs. If AI resume generation is enabled, it will also generate a summary of the scraped content.
+The scraper will then start scraping the selected blogs.
 
 ## AI Resume Feature
 
