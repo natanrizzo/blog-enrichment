@@ -18,12 +18,14 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "inquirer": "^12.6.0",
     "selenium-webdriver": "^4.31.0"
   },
   "devDependencies": {
     "@prisma/client": "^6.6.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/inquirer": "^9.0.7",
     "@types/node": "^22.14.1",
     "@types/selenium-webdriver": "^4.1.28",
     "chromedriver": "^135.0.2",

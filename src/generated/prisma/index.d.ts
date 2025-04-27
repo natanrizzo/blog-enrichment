@@ -3451,7 +3451,7 @@ export namespace Prisma {
     title: string | null
     content: string | null
     author: string | null
-    publishedAt: Date | null
+    publishedAt: string | null
     createdAt: Date | null
   }
 
@@ -3462,7 +3462,7 @@ export namespace Prisma {
     title: string | null
     content: string | null
     author: string | null
-    publishedAt: Date | null
+    publishedAt: string | null
     createdAt: Date | null
   }
 
@@ -3618,7 +3618,7 @@ export namespace Prisma {
     title: string
     content: string
     author: string
-    publishedAt: Date
+    publishedAt: string
     extraData: JsonValue | null
     createdAt: Date
     _count: PostCountAggregateOutputType | null
@@ -3716,7 +3716,7 @@ export namespace Prisma {
       title: string
       content: string
       author: string
-      publishedAt: Date
+      publishedAt: string
       extraData: Prisma.JsonValue | null
       createdAt: Date
     }, ExtArgs["result"]["post"]>
@@ -4149,7 +4149,7 @@ export namespace Prisma {
     readonly title: FieldRef<"Post", 'String'>
     readonly content: FieldRef<"Post", 'String'>
     readonly author: FieldRef<"Post", 'String'>
-    readonly publishedAt: FieldRef<"Post", 'DateTime'>
+    readonly publishedAt: FieldRef<"Post", 'String'>
     readonly extraData: FieldRef<"Post", 'Json'>
     readonly createdAt: FieldRef<"Post", 'DateTime'>
   }
@@ -4905,7 +4905,7 @@ export namespace Prisma {
     title?: StringFilter<"Post"> | string
     content?: StringFilter<"Post"> | string
     author?: StringFilter<"Post"> | string
-    publishedAt?: DateTimeFilter<"Post"> | Date | string
+    publishedAt?: StringFilter<"Post"> | string
     extraData?: JsonNullableFilter<"Post">
     createdAt?: DateTimeFilter<"Post"> | Date | string
     blog?: XOR<BlogScalarRelationFilter, BlogWhereInput>
@@ -4935,7 +4935,7 @@ export namespace Prisma {
     title?: StringFilter<"Post"> | string
     content?: StringFilter<"Post"> | string
     author?: StringFilter<"Post"> | string
-    publishedAt?: DateTimeFilter<"Post"> | Date | string
+    publishedAt?: StringFilter<"Post"> | string
     extraData?: JsonNullableFilter<"Post">
     createdAt?: DateTimeFilter<"Post"> | Date | string
     blog?: XOR<BlogScalarRelationFilter, BlogWhereInput>
@@ -4968,7 +4968,7 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Post"> | string
     content?: StringWithAggregatesFilter<"Post"> | string
     author?: StringWithAggregatesFilter<"Post"> | string
-    publishedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
+    publishedAt?: StringWithAggregatesFilter<"Post"> | string
     extraData?: JsonNullableWithAggregatesFilter<"Post">
     createdAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
   }
@@ -5140,7 +5140,7 @@ export namespace Prisma {
     title: string
     content: string
     author: string
-    publishedAt: Date | string
+    publishedAt: string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     blog: BlogCreateNestedOneWithoutPostsInput
@@ -5153,7 +5153,7 @@ export namespace Prisma {
     title: string
     content: string
     author: string
-    publishedAt: Date | string
+    publishedAt: string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
@@ -5163,7 +5163,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    publishedAt?: StringFieldUpdateOperationsInput | string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     blog?: BlogUpdateOneRequiredWithoutPostsNestedInput
@@ -5176,7 +5176,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    publishedAt?: StringFieldUpdateOperationsInput | string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5188,7 +5188,7 @@ export namespace Prisma {
     title: string
     content: string
     author: string
-    publishedAt: Date | string
+    publishedAt: string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
@@ -5198,7 +5198,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    publishedAt?: StringFieldUpdateOperationsInput | string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5210,7 +5210,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    publishedAt?: StringFieldUpdateOperationsInput | string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5916,7 +5916,7 @@ export namespace Prisma {
     title: string
     content: string
     author: string
-    publishedAt: Date | string
+    publishedAt: string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
@@ -5927,7 +5927,7 @@ export namespace Prisma {
     title: string
     content: string
     author: string
-    publishedAt: Date | string
+    publishedAt: string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
@@ -6002,7 +6002,7 @@ export namespace Prisma {
     title?: StringFilter<"Post"> | string
     content?: StringFilter<"Post"> | string
     author?: StringFilter<"Post"> | string
-    publishedAt?: DateTimeFilter<"Post"> | Date | string
+    publishedAt?: StringFilter<"Post"> | string
     extraData?: JsonNullableFilter<"Post">
     createdAt?: DateTimeFilter<"Post"> | Date | string
   }
@@ -6129,7 +6129,7 @@ export namespace Prisma {
     title: string
     content: string
     author: string
-    publishedAt: Date | string
+    publishedAt: string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
   }
@@ -6139,7 +6139,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    publishedAt?: StringFieldUpdateOperationsInput | string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6150,7 +6150,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    publishedAt?: StringFieldUpdateOperationsInput | string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6161,7 +6161,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     author?: StringFieldUpdateOperationsInput | string
-    publishedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    publishedAt?: StringFieldUpdateOperationsInput | string
     extraData?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

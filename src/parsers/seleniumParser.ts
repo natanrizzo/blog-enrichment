@@ -80,7 +80,7 @@ export class SeleniumParser implements IParser {
         let postTitle = "";
         let postContent = "";
         let postAuthor = "";
-        let postPublishedAt = new Date();
+        let postPublishedAt = "";
         
         try {
             const titleEl = await this.driver.wait(until.elementLocated(By.xpath(config.titleXPath)), this.TIMEOUT);
@@ -106,13 +106,12 @@ export class SeleniumParser implements IParser {
         } catch (err) {
             console.warn("Author element not found:", err);
         }
-        
 
         try {
             const dateEl = await this.driver.findElement(By.xpath(config.dateXPath));
             const dateAttr = await dateEl.getAttribute("datetime");
             const dateText = dateAttr || await dateEl.getText();
-            postPublishedAt = new Date(dateText);
+            postPublishedAt = dateText;
         } catch (err) {
             console.warn("Date element not found:", err);
         }

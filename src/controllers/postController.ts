@@ -29,9 +29,7 @@ export class PostController {
 
     summarizePost = async (req: Request, res: Response) => {
         const { text } = req.body;
-        console.log(text);
         const sumText = await this.aiService.summarizeText(text);
-        console.log("Post resumido: ", sumText);
         res.json(sumText);
     }
 }

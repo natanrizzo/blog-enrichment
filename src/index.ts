@@ -1,36 +1,32 @@
 import { ScraperService } from "./services/scraperService";
-import readline from "readline";
-
-function perguntar(rl: readline.Interface, pergunta: string): Promise<string> {
-    return new Promise((resolve) => {
-        rl.question(pergunta, (resposta) => {
-            resolve(resposta);
-        });
-    });
-}
+import { BlogRepository } from "./repositories/blogRepository";
+import inquirer from "inquirer";
 
 async function main(): Promise<void> {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+    const blogRepo = new BlogRepository();
+    const blogs = await blogRepo.getAllBlogs();
 
-    let websiteBaseUrl = await perguntar(rl, "Digite o url do site o qual queira coletar dados: ");
-    if (!websiteBaseUrl) {
-        websiteBaseUrl = "https://www.manualdepericias.com.br/blog/";
+    if (!blogs.length) {
+        console.log("❌ No blogs found in the database.");
+        return;
     }
 
-    let platform = await perguntar(rl, "Digite a plataforma do website: (padrão wordpress) ");
-    if (!platform) {
-        platform = "wordpress";
-    }
-
-    rl.close();
+    const { selectedBlogUrl } = await inquirer.prompt([
+        {
+            type: "list",
+            name: "selectedBlogUrl",
+            message: "🌐 Choose the blog you want to scrape:",
+            choices: blogs.map((blog) => ({
+                name: blog.baseUrl,
+                value: blog.baseUrl,
+            })),
+        }
+    ]);
 
     const scraperService = new ScraperService();
-    await scraperService.runScraper(websiteBaseUrl, platform);
+    await scraperService.runScraper(selectedBlogUrl,selectedBlogUrl.platform);
 
-    console.log("Scraping done!");
+    console.log("✅ Scraping done!");
 }
 
 main().catch(e => {

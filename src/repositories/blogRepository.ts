@@ -1,3 +1,4 @@
+import { BlogXPathDTO } from "../dto/blogXPathDto";
 import { CreateXPathDTO } from "../dto/xPathDto";
 import { Blog, XPathConfig } from "../generated/prisma";
 import prisma from "../prisma/prisma";
@@ -16,12 +17,55 @@ export class BlogRepository {
         });
     }
 
+    async createBlogWithXPath(blog: BlogXPathDTO): Promise<Blog> {
+        const createdBlog = await prisma.blog.create({
+            data: {
+                baseUrl: blog.baseUrl,
+                platform: blog.platform,
+                xPath: {
+                    create: blog.xPath
+                }
+            },
+            include: {
+                xPath: true,
+            }
+        });
+        return createdBlog;
+    }
+
+    async getOneBlogById(blogId: number): Promise<Blog | null> {
+        return await prisma.blog.findUnique({
+            where: { id: blogId },
+            include: {
+                xPath: true,
+            }
+        })
+    }
+
     async getAllBlogs(): Promise<Blog[]> {
         return await prisma.blog.findMany({
             include: {
                 xPath: true
             }
         });
+    }
+
+    async updateBlog(blogId: number, blog: BlogXPathDTO): Promise<Blog> {
+        const updatedBlog = await prisma.blog.update({
+            where: { id: blogId },
+            data: {
+                baseUrl: blog.baseUrl,
+                xPath: {
+                    update: blog.xPath,
+                },
+            },
+            include: {
+                xPath: true,
+            },
+        });
+        console.log(blog);
+        console.log(updatedBlog);
+        return updatedBlog;
     }
 
     async createBlogXPaths(xpaths: CreateXPathDTO): Promise<XPathConfig> {

@@ -35,7 +35,7 @@ export default class PostRepository {
         }
     }
 
-    async getLastPublishedAt(websiteBlogId: number): Promise<Date | null> {
+    async getLastPublishedAt(websiteBlogId: number): Promise<string | null> {
         const last = await prisma.post.findFirst({
             where: { blogId: websiteBlogId },
             orderBy: { publishedAt: "desc" },
@@ -54,7 +54,11 @@ export default class PostRepository {
     }
 
     async getAllPosts(): Promise<Post[]> {
-        const posts = await prisma.post.findMany();
+        const posts = await prisma.post.findMany({
+            include: {
+                blog: true,
+            }
+        });
         return posts;
     }
 

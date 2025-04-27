@@ -43,7 +43,7 @@ model Post {
   title       String
   content     String
   author      String
-  publishedAt DateTime
+  publishedAt String
   extraData   Json?
   createdAt   DateTime @default(now())
 

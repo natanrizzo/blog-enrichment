@@ -5,7 +5,7 @@ export interface PostData {
     postTitle: string;
     postContent: string;
     postAuthor: string;
-    postPublishedAt: Date;
+    postPublishedAt: string;
     postExtraData?: any;
 }
 
