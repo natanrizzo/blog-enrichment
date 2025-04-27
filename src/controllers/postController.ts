@@ -28,8 +28,8 @@ export class PostController {
     }
 
     summarizePost = async (req: Request, res: Response) => {
-        const { text } = req.body;
-        const sumText = await this.aiService.summarizeText(text);
+        const { model, text } = req.body;
+        const sumText = await this.aiService.summarizeText(model, text);
         res.json(sumText);
     }
 }
