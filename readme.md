@@ -13,11 +13,11 @@ This is a web scraper focused primarily on scraping WordPress blogs. It also sup
 
 Clone the repository:
 ``` bash
-git clone
+git clone https://github.com/natanrizzo/blog-enrichment.git
 ```
 Navigate to the project directory:
 ``` bash
-cd
+cd blog-enrichment
 ```
 Install the dependencies:
 ``` bash
