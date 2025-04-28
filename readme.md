@@ -1,15 +1,22 @@
-# Web Scraper with AI Resume
+# 🔍 Web Scraper with AI Resume
 
+![Node.js](https://img.shields.io/badge/Node.js-14%2B-green?logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.x-blue?logo=typescript&logoColor=white)
+![Selenium](https://img.shields.io/badge/Selenium-Automation-brightgreen?logo=selenium&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Status: Finished](https://img.shields.io/badge/Status-Finished-brightgreen)
+
+---
 This is a web scraper focused primarily on scraping WordPress blogs. It also supports scraping other types of blogs and includes a feature to generate AI-based summaries of the content collected by the scraper.
 
-## Features
+## ✨ Features
 
 - Scrape WordPress blogs and other blog types.
 - Generate AI summaries of the scraped content.
 - CLI interface for selecting blogs from the database to scrape.
 - Flexible scraping configuration to support multiple blog platforms.
 
-## Installation
+## ⚙️ Installation
 
 Clone the repository:
 ``` bash
@@ -23,7 +30,7 @@ Install the dependencies:
 ``` bash
 npm install
 ```
-## Configuration
+## 🔧 Configuration
 
 Before running the scraper, ensure you have configured the necessary database and AI settings in the environment.
 
@@ -31,7 +38,7 @@ Before running the scraper, ensure you have configured the necessary database an
 - **Port:** You can add a diferent port for the backend configuring `PORT` in the `.env` or use the default.
 - **AI:** Ensure you have API keys for AI models like OpenAI or Deepseek. **(DEEPSEEK_KEY, DEEPSEEK_KEY)**
 
-## Scripts
+## 📝 Scripts
 
 Here are the available commands you can run:
 
@@ -42,7 +49,7 @@ Here are the available commands you can run:
 - `npm run migrate`: Runs Prisma migrations to update the database schema.
 - `npm run studio`: Opens Prisma Studio for managing the database.
 
-## Running the Scraper
+## 🚀 Running the Scraper
 
 To run the scraper:
 
@@ -54,7 +61,7 @@ The CLI interface will prompt you to select the blogs from the database that you
 
 The scraper will then start scraping the selected blogs.
 
-## AI Resume Feature
+## 🤖 AI Resume Feature
 
 The AI resume feature is designed to summarize the content collected from the scraped blogs. It uses AI models to process and generate brief summaries of the content, which can be useful for quick overviews or analysis.
 
@@ -65,10 +72,10 @@ The AI resume feature is designed to summarize the content collected from the sc
 
 You can choose the AI model from the available options during the scraping process, or integrate it into the scraping flow.
 
-## Database Schema
+## 🗃️ Database Schema
 
 The scraper interacts with a PostgreSQL database and uses Prisma for managing database migrations and interactions. The database schema is configured to handle different types of blogs and store the necessary information related to the scraped content.
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
